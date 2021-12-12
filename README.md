@@ -1,4 +1,4 @@
-# Area-Distance-cesium-measurement
+# Area-Distance-measurement
 
 download the data (autzen-classified.laz) from here: https://github.com/PDAL/data/tree/master/autzen
 Make account at Cesium ion. https://cesium.com/ion. 
