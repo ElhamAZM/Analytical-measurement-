@@ -1,15 +1,70 @@
-
 <style>
-      @import url(../templates/bucket.css);
-    </style>
-    <div id="cesiumContainer" class="fullSize"></div>
-    <div id="loadingOverlay"><h1>Loading...</h1></div>
-    <div id="toolbar"></div>
-    <div style= "position: absolute;top: 10px;left: 10px;">
-      <button id = "distance" type="button" class= "cesium-button">Distance</button>
-      <button id = "horizontal-distance" type="button" class= "cesium-button">Horizontal Distance</button>
-      <button id = "vertical-distance" type="button" class= "cesium-button">Vertical Distance</button>
-      <button id = "area" type="button" class= "cesium-button">Area</button>
+  @import url(../templates/bucket.css);
 
+  #toolbar {
+    background-color: #0007;
+  }
 
+  label {
+    display: block;
+  }
+  
+  
+  .slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+</style>
+<div id="cesiumContainer" class="fullSize"></div>
+<div id="loadingOverlay">
+  <h1>Loading...</h1>
 </div>
+<div id="toolbar">
+  <h4>Mode:</h4>
+  <form id="modes" onchange="updateValue()">
+    <label><input type="radio" name="mode" value="d" checked />
+      Distance</label>
+    <label><input type="radio" name="mode" value="hd" />
+      Horizontal Distance</label>
+    <label><input type="radio" name="mode" value="vd" />
+      Vertical Distance</label>
+    <label><input type="radio" name="mode" value="a" />
+      Area</label>
+  </form>
+  <h5>Points:<span id="count">0</span></h5>
+  <h5 id="title"></h5>
+  <h3 id="value">Select at points.</h3>
+  <button id="clear" onclick="clearAll()">Clear</button>
+</div>
+
+    
